@@ -1,0 +1,3 @@
+set gui=none
+set gui=tabs
+set hlsearch
