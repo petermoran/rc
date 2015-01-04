@@ -1,3 +1,4 @@
 set gui=none
 set gui=tabs
 set hlsearch
+set hintchars=asdfghklqwertyuiop
