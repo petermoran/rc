@@ -55,6 +55,10 @@ filetype plugin indent on
 syntax on
 
 
+" Parentheses highlighting
+hi MatchParen cterm=bold ctermbg=none ctermfg=cyan
+
+
 " Showing line numbers and length
 set number  " show line numbers
 set tw=79   " width of document (used by gd)
@@ -80,6 +84,7 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+set nosmartindent
 
 
 " Make search case insensitive
@@ -94,3 +99,34 @@ set smartcase
 set nobackup
 set nowritebackup
 set noswapfile
+
+
+" c-indentation.
+" http://vimdoc.sourceforge.net/htmldoc/indent.html#C-indenting
+" 
+" (0,W4 -- better indentation for function args
+" i0    -- better initialization list indentation
+set cino=(0,W4,i0
+
+
+" Pathogen for plugin management.
+" >>> mkdir -p ~/.vim/autoload ~/.vim/bundle
+" >>> curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+execute pathogen#infect()
+
+" Install plugins:
+" >>> cd ~/.vim/bundle
+" >>> git clone git://github.com/tpope/vim-sensible.git
+" >>> git clone git://github.com/klen/python-mode.git
+" >>> git clone --recursive https://github.com/davidhalter/jedi-vim.git
+
+" python-mode rope completion is slow
+let g:pymode_rope = 0
+
+" Ignore long lines, manage this myself.
+let g:pymode_lint_ignore = "E501,W0401"
+
+let g:NERDSpaceDelims = 1
+
+let g:jedi#show_call_signatures = 0
+let g:jedi#popup_on_dot = 0
