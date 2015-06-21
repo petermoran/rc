@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "feh --bg-max ./config/awesome/themes/zenburn/black-cat-wallpaper_4.jpg" }
+theme.wallpaper_cmd = { "feh --bg-max ./.config/awesome/themes/zenburn/black-cat-wallpaper_4.jpg" }
 -- }}}
 
 -- {{{ Styles
