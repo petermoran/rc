@@ -103,10 +103,11 @@ set noswapfile
 
 " c-indentation.
 " http://vimdoc.sourceforge.net/htmldoc/indent.html#C-indenting
-" 
+"
 " (0,W4 -- better indentation for function args
 " i0    -- better initialization list indentation
-set cino=(0,W4,i0
+set cindent
+set cino=(0,W4,i0,g-1
 
 
 " Pathogen for plugin management.
