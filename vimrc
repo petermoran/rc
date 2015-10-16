@@ -118,8 +118,8 @@ set noswapfile
 "
 " (0,W4 -- better indentation for function args
 " i0    -- better initialization list indentation
+set cindent
 set cino=(0,W4,i0,g-1
-
 
 " Recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
