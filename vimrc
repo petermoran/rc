@@ -45,7 +45,14 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " https://github.com/jnurmine/Zenburn
 " Download colors/zenburn.vim to ~/.vim/colors
 set t_Co=256
+
+let g:zenburn_high_Contrast=0
 color zenburn
+
+" let g:pencil_higher_contrast_ui=1
+" color pencil
+
+set cursorline
 
 
 " Enable syntax highlighting
@@ -56,7 +63,8 @@ syntax on
 
 
 " Parentheses highlighting
-hi MatchParen cterm=bold ctermbg=none ctermfg=cyan
+" hi MatchParen cterm=bold ctermbg=none ctermfg=cyan
+hi MatchParen cterm=bold ctermbg=none ctermfg=yellow
 
 
 " Showing line numbers and length
@@ -66,8 +74,9 @@ set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=97
     highlight ColorColumn ctermbg=238
+    " highlight ColorColumn ctermbg=253
 endif
 
 
@@ -126,13 +135,19 @@ execute pathogen#infect()
 " >>> git clone git://github.com/klen/python-mode.git
 " >>> git clone --recursive https://github.com/davidhalter/jedi-vim.git
 
-" python-mode rope completion is slow
+" python-mode rope completion is slow, use lint
 let g:pymode_rope = 0
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 1
 
 " Ignore some annoying pep messages.
-let g:pymode_lint_ignore = "E501,W0401,C901"
+let g:pymode_lint_ignore = "E501,W0401,C901,E731"
 
 let g:NERDSpaceDelims = 1
 
 let g:jedi#show_call_signatures = 0
 let g:jedi#popup_on_dot = 0
+
+" autopep8 (requires pip install autopep8)
+let g:autopep8_select = "E127,E128,E202,E203,E231,E265,E266,E301,E302,E303,E231,E251,E265"
+let g:autopep8_disable_show_diff = 1
