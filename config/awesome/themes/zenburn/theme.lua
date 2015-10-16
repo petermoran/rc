@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "feh --bg-scale /usr/share/awesome/themes/zenburn/zenburn-background.png" }
+theme.wallpaper_cmd = { "feh --bg-max ./config/awesome/themes/zenburn/black-cat-wallpaper_4.jpg" }
 -- }}}
 
 -- {{{ Styles
@@ -29,6 +29,7 @@ theme.border_normal = "#3F3F3F"
 -- theme.border_focus  = "#6F6F6F"
 -- theme.border_focus  = "#829B81"
 theme.border_focus  = "#FFFFFF"
+-- theme.border_focus = "#DCA3A3"
 theme.border_marked = "#CC9393"
 -- }}}
 

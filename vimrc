@@ -64,8 +64,11 @@ set number  " show line numbers
 set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-highlight ColorColumn ctermbg=238
+
+if exists('+colorcolumn')
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=238
+endif
 
 
 " easier formatting of paragraphs
@@ -109,6 +112,8 @@ set noswapfile
 set cindent
 set cino=(0,W4,i0,g-1
 
+" Recognise .tpp files as c++
+autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
 " Pathogen for plugin management.
 " >>> mkdir -p ~/.vim/autoload ~/.vim/bundle
@@ -124,8 +129,8 @@ execute pathogen#infect()
 " python-mode rope completion is slow
 let g:pymode_rope = 0
 
-" Ignore long lines, manage this myself.
-let g:pymode_lint_ignore = "E501,W0401"
+" Ignore some annoying pep messages.
+let g:pymode_lint_ignore = "E501,W0401,C901"
 
 let g:NERDSpaceDelims = 1
 
