@@ -10,4 +10,5 @@ alias uu='cd ../..'
 alias uuu='cd ../../..'
 alias uuuu='cd ../../../..'
 
-alias tmux="TERM=screen-256color-bce tmux"
+# alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="tmux -2"
