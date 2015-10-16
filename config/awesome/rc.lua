@@ -189,6 +189,8 @@ for s = 1, screen.count() do
 end
 -- }}}
 
+mystatusbar = awful.wibox({ position = "bottom", screen = 3, ontop = false, width = 1, height = 600, align="right" })
+
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -323,8 +325,8 @@ end
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    awful.button({ "Mod1" }, 1, awful.mouse.client.move),
-    awful.button({ "Mod1" }, 3, awful.mouse.client.resize))
+    awful.button({ modkey }, 1, awful.mouse.client.move),
+    awful.button({ modkey }, 3, awful.mouse.client.resize))
 
 -- Set keys
 root.keys(globalkeys)
