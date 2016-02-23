@@ -17,9 +17,14 @@ alias uuuu="cd ../../../.."
 # alias tmux="TERM=screen-256color-bce tmux"
 alias tmux="tmux -2"
 
+# add usr/bin to path if not found
 for dir in $HOME/usr/bin ; do
   case ":$PATH:" in
     *":$dir:"*) :;; # already there
     *) PATH="$dir:$PATH";;
   esac
 done
+
+# add usr dir to ld and pkg path
+export LD_LIBRARY_PATH="$HOME/usr/lib"
+export PKG_CONFIG_PATH="$HOME/usr/lib/pkgconfig"
