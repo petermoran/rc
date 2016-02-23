@@ -16,3 +16,10 @@ alias uuuu="cd ../../../.."
 
 # alias tmux="TERM=screen-256color-bce tmux"
 alias tmux="tmux -2"
+
+for dir in $HOME/usr/bin ; do
+  case ":$PATH:" in
+    *":$dir:"*) :;; # already there
+    *) PATH="$dir:$PATH";;
+  esac
+done
