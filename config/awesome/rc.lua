@@ -189,7 +189,7 @@ for s = 1, screen.count() do
 end
 -- }}}
 
-mystatusbar = awful.wibox({ position = "bottom", screen = 3, ontop = false, width = 1, height = 600, align="right" })
+-- mystatusbar = awful.wibox({ position = "bottom", screen = 3, ontop = false, width = 1, height = 600, align="right" })
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
