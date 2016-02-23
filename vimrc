@@ -55,6 +55,7 @@ syntax on
 
 
 " Color scheme
+" mkdir -p ~/.vim/colors; wget https://raw.githubusercontent.com/jnurmine/Zenburn/master/colors/zenburn.vim -O ~/.vim/colors/zenburn.vim
 " https://github.com/jnurmine/Zenburn
 " Download colors/zenburn.vim to ~/.vim/colors
 set t_Co=256
@@ -139,7 +140,7 @@ autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 " >>> git clone git://github.com/tpope/vim-sensible.git
 " >>> git clone git://github.com/klen/python-mode.git
 " >>> git clone --recursive https://github.com/davidhalter/jedi-vim.git
-" >>> git clone https://github.com/hynek/vim-python-pep8-indent.git
+" xxx >>> git clone https://github.com/hynek/vim-python-pep8-indent.git
 
 let g:pymode_indent = 1
 let g:pymode_folding = 1
