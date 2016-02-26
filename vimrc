@@ -110,6 +110,11 @@ set expandtab
 set nosmartindent
 
 
+" Bash like tab-completion when opening files
+set wildmode=longest:list
+" set wildmode=longest:full,full
+
+
 " Make search case insensitive
 set hlsearch
 set incsearch
