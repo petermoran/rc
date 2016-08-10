@@ -14,7 +14,7 @@ alias uu="cd ../.."
 alias uuu="cd ../../.."
 alias uuuu="cd ../../../.."
 
-# alias tmux="TERM=screen-256color-bce tmux"
+# alias tmux="TERM=xterm-256color tmux"
 alias tmux="tmux -2"
 
 # add usr/bin to path if not found
