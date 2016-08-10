@@ -108,6 +108,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set nosmartindent
+set noautoindent
 
 
 " Bash like tab-completion when opening files
@@ -133,12 +134,20 @@ set noswapfile
 " http://vimdoc.sourceforge.net/htmldoc/indent.html#C-indenting
 "
 " (0,W4 -- better indentation for function args
-" i0    -- better initialization list indentation
+" N-s   -- namespace no indentation
+" g0    -- public/private flat indentation
+" :0    -- flat switch case indentation
+" is    -- indent initializer list by one
 set cindent
-set cino=(0,W4,i0,g-1
+set cino=N-s,g0,:0,(0,W4,is,+s
 
 " Recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
+
+" Source/header file switching with F4
+" $ mkdir -p ~/.vim.plugin
+" $ wget https://raw.githubusercontent.com/derekwyatt/vim-fswitch/master/plugin/fswitch.vim
+map <F4> :FSHere<CR>
 
 " Install plugins:
 " >>> cd ~/.vim/bundle
