@@ -1,5 +1,5 @@
 ! Zenburn style colour theme
-xterm*background: #3f3f3f
+xterm*background: #2f2f2f
 xterm*foreground: #dcdccc
 xterm*cursorColor: #aaaaaa
 
