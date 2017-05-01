@@ -4,6 +4,7 @@ fi
 
 PS1="${debian_chroot:+($debian_chroot)}\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
 
+alias ls="ls --color=auto"
 alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -lF"
