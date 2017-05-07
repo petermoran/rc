@@ -31,6 +31,15 @@ xterm*color15: #FFFFFF
 xterm*termName: xterm-256color
 xterm*locale: true
 xterm*saveLines: 4096
-xterm*faceName: xft:ProggySquareTTSZ:antialias=false:size=12
+! xterm*faceName: xft:ProggySquareTTSZ:antialias=false:size=12
+xterm*faceName: xft:ProggyCleanTT:antialias=false:size=12
 xterm*allowBoldFonts: false
 xterm*utf8: 1
+
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.dpi: 96
