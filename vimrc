@@ -145,8 +145,8 @@ set cino=N-s,g0,:0,(0,W4,is,+s
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
 " Source/header file switching with F4
-" $ mkdir -p ~/.vim.plugin
-" $ wget https://raw.githubusercontent.com/derekwyatt/vim-fswitch/master/plugin/fswitch.vim
+" $ mkdir -p ~/.vim/plugin
+" $ cd ~/.vim/plugin && wget https://raw.githubusercontent.com/derekwyatt/vim-fswitch/master/plugin/fswitch.vim
 map <F4> :FSHere<CR>
 
 " Install plugins:
