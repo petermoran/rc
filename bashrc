@@ -1,3 +1,9 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 if [ -z "$PS_COLOUR" ]; then
     PS_COLOUR="34m"
 fi
@@ -9,6 +15,10 @@ alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -lF"
 alias lh="ls -lFh"
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 alias u="cd .."
 alias uu="cd ../.."
@@ -29,3 +39,12 @@ done
 # add usr dir to ld and pkg path
 export LD_LIBRARY_PATH="$HOME/usr/lib"
 export PKG_CONFIG_PATH="$HOME/usr/lib/pkgconfig"
+
+# enable programmable completion features
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
