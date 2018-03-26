@@ -48,3 +48,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# use vi of course
+export EDITOR=vi
