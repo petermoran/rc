@@ -10,11 +10,15 @@ fi
 
 PS1="${debian_chroot:+($debian_chroot)}\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
 
+HISTSIZE=10000
+HISTFILESIZE=20000
+
 alias ls="ls --color=auto"
 alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -lF"
 alias lh="ls -lFh"
+alias lt="ls -ltr"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -24,6 +28,11 @@ alias u="cd .."
 alias uu="cd ../.."
 alias uuu="cd ../../.."
 alias uuuu="cd ../../../.."
+
+alias c='unbuffer nice make -j18 2>&1 | more'
+
+# fix ipython qt plot issues
+alias ipython='ipython --TerminalIPythonApp.gui="qt"'
 
 # alias tmux="TERM=xterm-256color tmux"
 alias tmux="tmux -2"
