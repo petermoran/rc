@@ -62,6 +62,10 @@ nnoremap <leader><space> :nohlsearch<esc>
 nnoremap <leader>w :w<esc>
 " e : open dir of current file
 nnoremap <leader>e :e %:h<esc>
+" n : next quickfix error
+nnoremap <leader>n :cn<esc>
+" p : previous quickfix error
+nnoremap <leader>p :cN<esc>
 
 " disable 'recording' command
 nnoremap q <Nop>
