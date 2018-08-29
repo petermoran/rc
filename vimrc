@@ -82,3 +82,20 @@ let g:pymode_rope_completion = 0
 
 " recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
+
+" syntastic default settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" modern clang tidy
+let g:syntastic_cpp_checkers = ['cppcheck']
+let g:syntastic_cpp_cppcheck_args = '--language=c++ --std=c++11 --enable=warning --enable=style --enable=information'
+
+map <F6> :py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
+imap <F6> <c-o>:py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
