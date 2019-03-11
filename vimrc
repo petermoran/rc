@@ -34,7 +34,9 @@ set wildmenu
 " appearance customisation
 set t_Co=256
 set background=dark
-let g:gruvbox_contrast_dark="medium"
+let g:gruvbox_contrast_dark="soft"
+" let g:gruvbox_contrast_light="medium"
+" set background=light
 colorscheme gruvbox
 
 set number     " turn line numbers on
@@ -66,36 +68,38 @@ nnoremap <leader>e :e %:h<esc>
 nnoremap <leader>n :cn<esc>
 " p : previous quickfix error
 nnoremap <leader>p :cN<esc>
+" d : close buffer
+nnoremap <leader>d :bdelete<esc>
 
 " disable 'recording' command
 nnoremap q <Nop>
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" buffer switching
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
 " python-mode customisation
 let g:pymode_breakpoint = 0
 let g:pymode_doc = 0
 let g:pymode_folding = 0
 let g:pymode_indent = 1
-let g:pymode_lint_ignore = ['E501', 'W605', 'C901']
+let g:pymode_lint_ignore = ['E501', 'W605', 'C901', 'E741']
 let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 
 " recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
-
-" syntastic default settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" modern clang tidy
-let g:syntastic_cpp_checkers = ['cppcheck']
-let g:syntastic_cpp_cppcheck_args = '--language=c++ --std=c++11 --enable=warning --enable=style --enable=information'
 
 map <F6> :py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
 imap <F6> <c-o>:py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
