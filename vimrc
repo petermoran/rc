@@ -1,3 +1,10 @@
+" need to enable ALE completion before plugin loads
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+nnoremap <C-a> :ALENextWrap<CR>
+nnoremap <C-s> :ALEPreviousWrap<CR>
+nnoremap <F4> :ALEGoToDefinition<CR>
+
 " pathogen load
 filetype off
 execute pathogen#infect()
@@ -103,3 +110,12 @@ autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
 map <F6> :py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
 imap <F6> <c-o>:py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
+
+"let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
+
+" Function to make ALE completion and Supertab completion play nice
+" by first trying ALE and then falling back to default vim.
+autocmd FileType *
+  \ if &omnifunc != '' |
+  \   call SuperTabChain(&omnifunc, "<c-p>") |
+  \ endif

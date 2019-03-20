@@ -13,22 +13,15 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 # plugins
 pushd ~/.vim/bundle
 
-# gruvbox
 git clone https://github.com/morhetz/gruvbox
-
-# python-mode
 git clone --recursive https://github.com/python-mode/python-mode.git
-
-# supertab
 git clone https://github.com/ervandew/supertab.git
-
-# syntastic
-git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
-
-# vim-cpp-modern
 git clone https://github.com/bfrg/vim-cpp-modern.git
+git clone https://github.com/luochen1990/rainbow.git
+git clone git://github.com/drmingdrmer/vim-tabbar.git
 
 # vim-peter
 ln -sf $REPO/vim/bundle/vim-peter
+
 
 popd

@@ -1,3 +1,7 @@
+let g:ale_c_clangformat_executable = 'clang-format-9'
+let b:ale_linters = ['ccls']
+let b:ale_fixers = ['clang-format']
+
 " We want to keep comments within an 80 column limit, but not code.
 " These two options give us that
 setlocal formatoptions=crq
