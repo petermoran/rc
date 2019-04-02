@@ -3,7 +3,7 @@ let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 nnoremap <C-a> :ALENextWrap<CR>
 nnoremap <C-s> :ALEPreviousWrap<CR>
-nnoremap <F4> :ALEGoToDefinition<CR>
+nnoremap <F2> :ALEGoToDefinition<CR>
 
 " pathogen load
 filetype off
@@ -14,8 +14,8 @@ filetype plugin indent on
 " auto reload vimrc after saving
 autocmd! bufwritepost .vimrc source %
 
-" better copy/paste with F2 toggle
-set pastetoggle=<F2>
+" better copy/paste with F10 toggle
+set pastetoggle=<F10>
 set clipboard=unnamed
 
 set nocompatible    " disable vi compatibility (emulation of old bugs)
@@ -96,20 +96,20 @@ nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " python-mode customisation
-let g:pymode_breakpoint = 0
-let g:pymode_doc = 0
-let g:pymode_folding = 0
-let g:pymode_indent = 1
-let g:pymode_lint_ignore = ['E501', 'W605', 'C901', 'E741']
-let g:pymode_python = 'python3'
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
+" let g:pymode_breakpoint = 0
+" let g:pymode_doc = 0
+" let g:pymode_folding = 0
+" let g:pymode_indent = 1
+" let g:pymode_lint_ignore = ['E501', 'W605', 'C901', 'E741']
+" let g:pymode_python = 'python3'
+" let g:pymode_rope = 0
+" let g:pymode_rope_completion = 0
 
 " recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
-map <F6> :py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
-imap <F6> <c-o>:py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
+" map <F6> :py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
+" imap <F6> <c-o>:py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
 
 "let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
 
