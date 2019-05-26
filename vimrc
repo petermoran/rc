@@ -1,9 +1,13 @@
 " need to enable ALE completion before plugin loads
 let g:ale_completion_enabled = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 nnoremap <C-a> :ALENextWrap<CR>
 nnoremap <C-s> :ALEPreviousWrap<CR>
 nnoremap <F2> :ALEGoToDefinition<CR>
+
+" add fzf path
+set rtp+=~/usr/src/fzf
+set rtp+=~/usr/src/fzf.vim
 
 " pathogen load
 filetype off
@@ -41,7 +45,7 @@ set wildmenu
 " appearance customisation
 set t_Co=256
 set background=dark
-let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_contrast_dark="medium"
 " let g:gruvbox_contrast_light="medium"
 " set background=light
 colorscheme gruvbox
@@ -52,6 +56,7 @@ set cursorline
 
 " rainbow parentheses improved
 let g:rainbow_active = 1
+let g:rainbow_conf = {'separately': {'cmake': 0}}
 
 " disable backup files
 set nobackup
@@ -70,13 +75,21 @@ nnoremap <leader><space> :nohlsearch<esc>
 " w : write file
 nnoremap <leader>w :w<esc>
 " e : open dir of current file
-nnoremap <leader>e :e %:h<esc>
+" nnoremap <leader>e :e %:h<esc>
 " n : next quickfix error
 nnoremap <leader>n :cn<esc>
 " p : previous quickfix error
 nnoremap <leader>p :cN<esc>
 " d : close buffer
 nnoremap <leader>d :bdelete<esc>
+nnoremap <leader>q :qa<esc>
+
+nnoremap <leader>c :make -j8 -C build<esc>
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+
+" fzf commands
+nnoremap <leader>f :Files<esc>
+nnoremap <leader>g :Rg<esc>
 
 " disable 'recording' command
 nnoremap q <Nop>
@@ -89,11 +102,6 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-" buffer switching
-set hidden
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
 
 " python-mode customisation
 " let g:pymode_breakpoint = 0
@@ -108,10 +116,9 @@ nnoremap <C-P> :bprev<CR>
 " recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
-" map <F6> :py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
-" imap <F6> <c-o>:py3file /usr/share/clang/clang-format-6.0/clang-format.py<cr>
-
-"let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
+set autowrite
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 " Function to make ALE completion and Supertab completion play nice
 " by first trying ALE and then falling back to default vim.
@@ -119,3 +126,8 @@ autocmd FileType *
   \ if &omnifunc != '' |
   \   call SuperTabChain(&omnifunc, "<c-p>") |
   \ endif
+
+" buffer switching
+set hidden
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
