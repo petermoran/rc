@@ -1,9 +1,11 @@
 #!/bin/bash -eux
 
-# Note: run from repo dir, i.e. as $ ./vim-setup.sh
-# Also assumes you have installed cppcheck and clang-format.
+if [ -d ~/.vim/bundle ]; then
+    echo "~/.vim/bundle already exists..."
+    exit
+fi
 
-REPO=$(pwd)
+REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # pathogen
 mkdir -p ~/.vim/autoload
@@ -29,3 +31,6 @@ git clone https://github.com/drmingdrmer/vim-tabbar.git
 ln -sf $REPO/vim/bundle/vim-peter
 
 popd
+
+# vimrc
+ln -s $REPO/vimrc ~/.vimrc
