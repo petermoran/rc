@@ -11,7 +11,7 @@ for RC in inputrc tmux.conf xinitrc ; do
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in awesome fontconfig lxterminal wallpaper ; do
+for CONFIG in awesome fontconfig lxterminal nvim wallpaper ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done

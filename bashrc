@@ -68,3 +68,6 @@ fi
 export EDITOR=vi
 
 export HISTCONTROL=ignoreboth:erasedups
+
+# fzf use rg so we can use .ignore
+export FZF_DEFAULT_COMMAND='rg --files'

@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-PACKAGES="vim neovim fonts-firacode git tmux build-essential cmake mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev curl googletest expect gdb awesome awesome-extra lxterminal zlib1g-dev"
+PACKAGES="vim neovim fonts-firacode git tmux build-essential cmake mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev curl googletest expect gdb awesome awesome-extra lxterminal zlib1g-dev ccache"
 sudo apt install $PACKAGES
 
 # Extras:

@@ -1,6 +1,6 @@
 " need to enable ALE completion before plugin loads
 let g:ale_completion_enabled = 1
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 nnoremap <C-a> :ALENextWrap<CR>
 nnoremap <C-s> :ALEPreviousWrap<CR>
 nnoremap <F2> :ALEGoToDefinition<CR>
@@ -19,12 +19,12 @@ filetype plugin indent on
 autocmd! bufwritepost .vimrc source %
 
 " better copy/paste with F10 toggle
-set pastetoggle=<F10>
-set clipboard=unnamed
+" set pastetoggle=<F10>
+" set clipboard=unnamed
 
 set nocompatible    " disable vi compatibility (emulation of old bugs)
 set autoindent      " use indentation of previous line
-set nosmartindent     " use intelligent indentation for C
+set nosmartindent   " use intelligent indentation for C
 set tabstop=4       " tab width is 4 spaces
 set shiftwidth=4    " indent also with 4 spaces
 set expandtab       " expand tabs to spaces
@@ -103,16 +103,6 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" python-mode customisation
-" let g:pymode_breakpoint = 0
-" let g:pymode_doc = 0
-" let g:pymode_folding = 0
-" let g:pymode_indent = 1
-" let g:pymode_lint_ignore = ['E501', 'W605', 'C901', 'E741']
-" let g:pymode_python = 'python3'
-" let g:pymode_rope = 0
-" let g:pymode_rope_completion = 0
-
 " recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
 
@@ -131,3 +121,7 @@ autocmd FileType *
 set hidden
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
+
+" show tabs
+" set list
+" set listchars=tab:>-
