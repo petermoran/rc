@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# autodetect conda env
+ENV=$(basename $(pwd))
+
+if [[ -d ${HOME}/miniconda3/envs/${ENV} ]]; then
+    source ${HOME}/miniconda3/bin/activate ${ENV}
+fi
+
+N=$(expr $(nproc) - 2)
+
+for DIR in Debug Release build; do
+    [[ -d ${DIR} ]] && make -j${N} -C${DIR}
+done
+
+[[ -f Makefile ]] && make -C. -j${N}

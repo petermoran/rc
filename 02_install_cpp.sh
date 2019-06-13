@@ -3,14 +3,14 @@
 if ! which gcc-9 ; then
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
     sudo apt-get update
-    sudo apt-get install gcc-9 g++-9
+    sudo apt-get install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
 fi
 
 
 if ! which clang-9 ; then
     wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
     
-    sudo cat > /etc/apt/sources.list.d/llvm.list <<EOF
+    sudo tee /etc/apt/sources.list.d/llvm.list > /dev/null << EOF
 deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main
 deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic main
 EOF

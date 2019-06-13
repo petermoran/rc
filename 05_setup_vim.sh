@@ -23,9 +23,10 @@ git clone https://github.com/ervandew/supertab.git
 git clone https://github.com/bfrg/vim-cpp-modern.git
 git clone https://github.com/Vimjas/vim-python-pep8-indent.git
 git clone https://github.com/drmingdrmer/vim-tabbar.git
+git clone https://github.com/junegunn/fzf.vim.git
 
 # Extras:
-# - install ccls
+# - install ccls/fzf/rg
 
 # vim-peter
 ln -sf $REPO/vim/bundle/vim-peter

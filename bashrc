@@ -30,8 +30,8 @@ alias uuu="cd ../../.."
 alias uuuu="cd ../../../.."
 
 # alias c='unbuffer nice make -j18 2>&1 | more'
-alias c="unbuffer nice make -j18 2>&1 | tee /tmp/last_build.tmp | more && sed -i 's/\x1b\[[0-9;]*m//g;s/\x1b\[K//g' /tmp/last_build.tmp"
-alias c="TCLLIBPATH=/usr/lib/tcltk/x86_64-linux-gnu unbuffer nice make -j4 2>&1 | tee /tmp/last_build.tmp | more && sed -i 's/\x1b\[[0-9;]*m//g;s/\x1b\[K//g' /tmp/last_build.tmp"
+# alias c="unbuffer nice make -j18 2>&1 | tee /tmp/last_build.tmp | more && sed -i 's/\x1b\[[0-9;]*m//g;s/\x1b\[K//g' /tmp/last_build.tmp"
+alias c="TCLLIBPATH=/usr/lib/tcltk/x86_64-linux-gnu unbuffer nice make -j$(nproc) 2>&1 | tee /tmp/last_build.tmp | more && sed -i 's/\x1b\[[0-9;]*m//g;s/\x1b\[K//g' /tmp/last_build.tmp"
 # note: find correct path by searching for tcl file find /usr -name '*.tcl'
 # e.g: /usr/lib/tcltk/x86_64-linux-gnu/expect5.45.4/pkgIndex.tcl
 
@@ -70,4 +70,6 @@ export EDITOR=vi
 export HISTCONTROL=ignoreboth:erasedups
 
 # fzf use rg so we can use .ignore
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 export FZF_DEFAULT_COMMAND='rg --files'

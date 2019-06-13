@@ -45,7 +45,7 @@ set wildmenu
 " appearance customisation
 set t_Co=256
 set background=dark
-let g:gruvbox_contrast_dark="medium"
+let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_contrast_light="medium"
 " set background=light
 colorscheme gruvbox
@@ -69,6 +69,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+" use custom automake script for make
+set makeprg=automake
+
 " leader (\ key) bindings
 " space : disable search highlighting
 nnoremap <leader><space> :nohlsearch<esc>
@@ -83,11 +86,13 @@ nnoremap <leader>p :cN<esc>
 " d : close buffer
 nnoremap <leader>d :bdelete<esc>
 nnoremap <leader>q :qa<esc>
+nnoremap <leader>o :only<esc>
 
-nnoremap <leader>c :make -j8 -C build<esc>
+nnoremap <leader>c :make<esc>
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 
 " fzf commands
+nnoremap <leader>b :Buffers<esc>
 nnoremap <leader>f :Files<esc>
 nnoremap <leader>g :Rg<esc>
 
