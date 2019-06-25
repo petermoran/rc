@@ -101,9 +101,6 @@ nnoremap <leader>n :cn<esc>
 nnoremap <leader>p :cN<esc>
 " r : search replace word under cursor
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
-" tab / shift-tab : cycle tabs
-nnoremap <Leader><Tab> :bnext<CR>
-nnoremap <Leader><S-Tab> :bprev<CR>
 " common commands
 nnoremap <leader>w :w<esc>
 nnoremap <leader>x :BufferDelete<esc>
@@ -121,6 +118,10 @@ nnoremap <leader>d :ALEGoToDefinition<CR>
 nnoremap <leader>v :ALEHover<CR>
 " nerdtree commands
 nnoremap <leader>t :NERDTreeFocus<CR>
+
+" ctrl h/l to shift tabs
+nnoremap <C-h> :bprev<CR>
+nnoremap <C-l> :bnext<CR>
 
 " Function to make ALE completion and Supertab completion play nice
 " by first trying ALE and then falling back to default vim.
