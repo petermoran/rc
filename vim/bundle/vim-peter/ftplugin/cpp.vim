@@ -1,4 +1,6 @@
 let g:ale_c_clangformat_executable = 'clang-format-9'
+let g:ale_cpp_clangtidy_executable = 'clang-tidy-9'
+
 let b:ale_linters = ['ccls']
 let b:ale_fixers = ['clang-format']
 

@@ -1,9 +1,8 @@
 " need to enable ALE completion before plugin loads
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-nnoremap <C-a> :ALENextWrap<CR>
-nnoremap <C-s> :ALEPreviousWrap<CR>
-nnoremap <F2> :ALEGoToDefinition<CR>
+" set omnifunc=ale#completion#OmniFunc
+set completeopt+=noinsert
 
 " add fzf path
 set rtp+=~/usr/src/fzf
@@ -72,30 +71,6 @@ set smartcase
 " use custom automake script for make
 set makeprg=automake
 
-" leader (\ key) bindings
-" space : disable search highlighting
-nnoremap <leader><space> :nohlsearch<esc>
-" w : write file
-nnoremap <leader>w :w<esc>
-" e : open dir of current file
-" nnoremap <leader>e :e %:h<esc>
-" n : next quickfix error
-nnoremap <leader>n :cn<esc>
-" p : previous quickfix error
-nnoremap <leader>p :cN<esc>
-" d : close buffer
-nnoremap <leader>d :bdelete<esc>
-nnoremap <leader>q :qa<esc>
-nnoremap <leader>o :only<esc>
-
-nnoremap <leader>c :make<esc>
-nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
-
-" fzf commands
-nnoremap <leader>b :Buffers<esc>
-nnoremap <leader>f :Files<esc>
-nnoremap <leader>g :Rg<esc>
-
 " disable 'recording' command
 nnoremap q <Nop>
 
@@ -115,18 +90,41 @@ set autowrite
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+" Delete buffer without closing window
+:command! BufferDelete :bn|:bd#
+
+" leader (\ key) bindings
+" space : disable search highlighting
+nnoremap <leader><space> :nohlsearch<esc>
+" n, p : next, previous quickfix error
+nnoremap <leader>n :cn<esc>
+nnoremap <leader>p :cN<esc>
+" r : search replace word under cursor
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+" tab / shift-tab : cycle tabs
+nnoremap <Leader><Tab> :bnext<CR>
+nnoremap <Leader><S-Tab> :bprev<CR>
+" common commands
+nnoremap <leader>w :w<esc>
+nnoremap <leader>x :BufferDelete<esc>
+nnoremap <leader>q :qa<esc>
+nnoremap <leader>o :only<esc>
+nnoremap <leader>c :make<esc>
+" fzf commands
+nnoremap <leader>b :Buffers<esc>
+nnoremap <leader>f :Files<esc>
+nnoremap <leader>g :Rg<esc>
+" ale commands
+nnoremap <leader>a :ALENextWrap<CR>
+nnoremap <leader>s :ALEPreviousWrap<CR>
+nnoremap <leader>d :ALEGoToDefinition<CR>
+nnoremap <leader>v :ALEHover<CR>
+" nerdtree commands
+nnoremap <leader>t :NERDTreeFocus<CR>
+
 " Function to make ALE completion and Supertab completion play nice
 " by first trying ALE and then falling back to default vim.
 autocmd FileType *
   \ if &omnifunc != '' |
   \   call SuperTabChain(&omnifunc, "<c-p>") |
   \ endif
-
-" buffer switching
-set hidden
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprev<CR>
-
-" show tabs
-" set list
-" set listchars=tab:>-
