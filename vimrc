@@ -1,8 +1,8 @@
 " need to enable ALE completion before plugin loads
 let g:ale_completion_enabled = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 " set omnifunc=ale#completion#OmniFunc
-set completeopt+=noinsert
+" set completeopt+=noinsert
 
 " add fzf path
 set rtp+=~/usr/src/fzf
@@ -24,10 +24,10 @@ autocmd! bufwritepost .vimrc source %
 set nocompatible    " disable vi compatibility (emulation of old bugs)
 set autoindent      " use indentation of previous line
 set nosmartindent   " use intelligent indentation for C
-set tabstop=4       " tab width is 4 spaces
-set shiftwidth=4    " indent also with 4 spaces
-set expandtab       " expand tabs to spaces
-set softtabstop=4   " makes bksp remove 4 spaces
+" set tabstop=4       " tab width is 4 spaces
+" set shiftwidth=4    " indent also with 4 spaces
+" set expandtab       " expand tabs to spaces
+" set softtabstop=4   " makes bksp remove 4 spaces
 
 " easier moving of code blocks
 vnoremap < <gv " better indentation
@@ -44,7 +44,7 @@ set wildmenu
 " appearance customisation
 set t_Co=256
 set background=dark
-let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_contrast_dark="medium"
 " let g:gruvbox_contrast_light="medium"
 " set background=light
 colorscheme gruvbox
@@ -70,6 +70,7 @@ set smartcase
 
 " use custom automake script for make
 set makeprg=automake
+" set makeprg=make
 
 " disable 'recording' command
 nnoremap q <Nop>
@@ -106,7 +107,7 @@ nnoremap <leader>w :w<esc>
 nnoremap <leader>x :BufferDelete<esc>
 nnoremap <leader>q :qa<esc>
 nnoremap <leader>o :only<esc>
-nnoremap <leader>c :make<esc>
+nnoremap <leader>c :Make<esc>
 " fzf commands
 nnoremap <leader>b :Buffers<esc>
 nnoremap <leader>f :Files<esc>
@@ -115,9 +116,10 @@ nnoremap <leader>g :Rg<esc>
 nnoremap <leader>a :ALENextWrap<CR>
 nnoremap <leader>s :ALEPreviousWrap<CR>
 nnoremap <leader>d :ALEGoToDefinition<CR>
-nnoremap <leader>v :ALEHover<CR>
+nnoremap <leader>v :ALEFix<CR>
 " nerdtree commands
 nnoremap <leader>t :NERDTreeFocus<CR>
+nnoremap <leader>z :call CurtineIncSw()<esc>
 
 " ctrl h/l to shift tabs
 nnoremap <C-h> :bprev<CR>

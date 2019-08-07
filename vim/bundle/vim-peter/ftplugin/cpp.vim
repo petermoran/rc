@@ -10,12 +10,15 @@ setlocal formatoptions=crq
 setlocal textwidth=80
 
 " Indents are 4 spaces
-setlocal shiftwidth=4
-setlocal tabstop=4
-setlocal softtabstop=4
-
-" And they really are spaces, *not* tabs
-setlocal expandtab
+" setlocal shiftwidth=4
+" setlocal tabstop=4
+" setlocal softtabstop=4
+" setlocal expandtab
+" Tab for indent
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 " Setup for indending
 setlocal nosmartindent
