@@ -1,5 +1,5 @@
-let g:ale_c_clangformat_executable = 'clang-format-9'
-let g:ale_cpp_clangtidy_executable = 'clang-tidy-9'
+" let g:ale_c_clangformat_executable = 'clang-format-9'
+" let g:ale_cpp_clangtidy_executable = 'clang-tidy-9'
 
 let b:ale_linters = ['ccls']
 let b:ale_fixers = ['clang-format']
@@ -7,13 +7,14 @@ let b:ale_fixers = ['clang-format']
 " We want to keep comments within an 80 column limit, but not code.
 " These two options give us that
 setlocal formatoptions=crq
-setlocal textwidth=80
+setlocal textwidth=120
 
-" Indents are 4 spaces
+" Space for indent
 " setlocal shiftwidth=4
 " setlocal tabstop=4
 " setlocal softtabstop=4
 " setlocal expandtab
+
 " Tab for indent
 set autoindent
 set noexpandtab
@@ -128,9 +129,7 @@ endfunction
 " Derek Wyatt (derek <at> [my first name][mylastname] <dot> org)
 " http://derekwyatt.org
 
-"
 " Helper functions for the Indent code below
-"
 function! IsBlockComment(lnum)
     if getline(a:lnum) =~ '^\s*/\*'
         return 1
@@ -171,13 +170,11 @@ function! IsCode(lnum)
     endif
 endfunction
 
-"
 " GetCppIndentNoNamespace()
 "
 " This little function calculates the indent level for C++ and treats the
 " namespace differently than usual - we ignore it.  The indent level is the for
 " a given line is the same as it would be were the namespace not event there.
-"
 function! GetCppIndentNoNamespace(lnum)
     let nsLineNum = search('^\s*\<namespace\>\s\+\S\+', 'bnW')
     if nsLineNum == 0
