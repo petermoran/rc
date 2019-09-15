@@ -11,7 +11,7 @@ for RC in inputrc tmux.conf xinitrc ; do
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in awesome lxterminal nvim wallpaper ; do
+for CONFIG in awesome gtk-3.0 lxterminal nvim wallpaper ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done
@@ -26,3 +26,6 @@ cat > ~/.gitconfig <<EOF
     type = cat-file -t
     dump = cat-file -p
 EOF
+
+mkdir -p ~/usr/bin
+ln -sf ${REPO}/usr/bin/pm-make ~/usr/bin/pm-make

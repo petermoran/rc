@@ -22,6 +22,6 @@ git clone https://github.com/drmingdrmer/vim-tabbar.git
 git clone https://github.com/junegunn/fzf.vim.git
 
 # vim-peter
-ln -sf $REPO/vim/bundle/vim-peter
+ln -sf $REPO/vim-peter
 
 popd
