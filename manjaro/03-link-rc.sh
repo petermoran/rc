@@ -11,7 +11,7 @@ for RC in inputrc tmux.conf xinitrc ; do
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in awesome gtk-3.0 lxterminal nvim wallpaper ; do
+for CONFIG in alacritty awesome gtk-3.0 lxterminal nvim wallpaper ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done
