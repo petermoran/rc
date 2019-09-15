@@ -15,7 +15,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
-local debian = require("debian.menu")
+-- local debian = require("debian.menu")
 -- local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 -- {{{ Error handling
@@ -48,7 +48,7 @@ end
 beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "lxterminal"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -117,7 +117,7 @@ local menu_terminal = { "open terminal", terminal }
 mymainmenu = awful.menu({
     items = {
               menu_awesome,
-              { "Debian", debian.menu.Debian_menu.Debian },
+              -- { "Debian", debian.menu.Debian_menu.Debian },
               menu_terminal,
             }
 })
@@ -544,7 +544,7 @@ end)
 
 -- {{{ Autostart
 -- awful.spawn("xset r 120 25")
-awful.spawn("mate-settings-daemon")
-awful.spawn("bash -c 'sleep 10 && xset r rate 130 25'")
+-- awful.spawn("mate-settings-daemon")
+awful.spawn("bash -c 'sleep 1 && xset r rate 150 40'")
 awful.spawn("nm-applet")
 -- }}}
