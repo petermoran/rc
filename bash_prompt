@@ -99,7 +99,7 @@ else
 fi;
 
 # Set the terminal title and prompt.
-PS1="\n"; # newline
+PS1=""; # newline
 PS1+="\[${user_style}\]\u@\h \[${green}\]\w"; # user@host working_dir
 PS1+="\$(prompt_git \"\[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
 PS1+="\n";
