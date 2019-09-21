@@ -4,6 +4,7 @@ REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 
 cat > ~/.bashrc <<EOF
 source $REPO/bashrc
+source $REPO/bash_prompt
 EOF
 
 for RC in inputrc tmux.conf xinitrc ; do

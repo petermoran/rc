@@ -4,11 +4,13 @@ case $- in
       *) return;;
 esac
 
-if [ -z "$PS_COLOUR" ]; then
-    PS_COLOUR="34m"
-fi
+# if [ -z "$PS_COLOUR" ]; then
+#     PS_COLOUR="34m"
+# fi
 
-PS1="${debian_chroot:+($debian_chroot)}\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
+# PS1="${debian_chroot:+($debian_chroot)}\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
+# PS1="\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
+# source ${HOME}/repo/petermoran/rc/bash_prompt
 
 HISTSIZE=10000
 HISTFILESIZE=20000
