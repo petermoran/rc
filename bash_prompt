@@ -56,9 +56,9 @@ prompt_git() {
 			git rev-parse --short HEAD 2> /dev/null || \
 			echo '(unknown)')";
 
-		[ -n "${s}" ] && s=" [${s}]";
+		[ -n "${s}" ] && s="${2}[${s}] ";
 
-		echo -e " ${1}${repo_name}/${branch_name}${2}${s}";
+        echo -e "${s}${1}(${repo_name}/${branch_name}) ";
 	else
 		return;
 	fi;
@@ -102,9 +102,8 @@ else
 fi;
 
 # Set the terminal title and prompt.
-PS1=""; # newline
+PS1="\$(prompt_git \"\[${violet}\]\" \"\[${yellow}\]\")"; # Git repository details
 PS1+="\[${user_style}\]\u@\h \[${green}\]\w"; # user@host working_dir
-PS1+="\$(prompt_git \"\[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
