@@ -1,16 +1,15 @@
 #!/bin/bash
 
-# autodetect conda env
-ENV=$(basename $(pwd))
+N=$(expr $(nproc))
 
-if [[ -d ${HOME}/miniconda3/envs/${ENV} ]]; then
-    source ${HOME}/miniconda3/bin/activate ${ENV}
-fi
+PREFIX=.
 
-N=$(expr $(nproc) - 2)
-
-for DIR in Debug Release build; do
-    [[ -d ${DIR} ]] && make -j${N} -C${DIR}
+for DIR in Release Debug build; do
+    DIR=${PREFIX}/${DIR}
+    if [[ -d ${DIR} ]]; then
+        make -j${N} -C${DIR} ${TARGET}
+        exit 0
+    fi
 done
 
-[[ -f Makefile ]] && make -C. -j${N}
+exit 1

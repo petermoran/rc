@@ -20,6 +20,7 @@ git clone https://github.com/bfrg/vim-cpp-modern.git
 git clone https://github.com/Vimjas/vim-python-pep8-indent.git
 git clone https://github.com/drmingdrmer/vim-tabbar.git
 git clone https://github.com/junegunn/fzf.vim.git
+git clone https://github.com/tpope/vim-dispatch.git
 
 # vim-peter
 ln -sf $REPO/vim-peter

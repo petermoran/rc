@@ -19,6 +19,11 @@ filetype plugin indent on
 " set pastetoggle=<F10>
 " set clipboard=unnamed
 
+set tabstop=4       " tab width is 4 spaces
+set shiftwidth=4    " indent also with 4 spaces
+set expandtab       " expand tabs to spaces
+set softtabstop=4   " makes bksp remove 4 spaces
+
 set nocompatible    " disable vi compatibility (emulation of old bugs)
 set autoindent      " use indentation of previous line
 set nosmartindent   " use intelligent indentation for C
@@ -62,8 +67,8 @@ set incsearch
 set ignorecase
 set smartcase
 
-" use custom automake script for make
-set makeprg=automake
+" use custom pm-make script for dispatch/make
+set makeprg=pm-make
 " set makeprg=make
 
 " disable 'recording' command

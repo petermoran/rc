@@ -2,6 +2,11 @@ setlocal formatoptions=crnqjo
 
 set completeopt+=noinsert
 
+" We want to keep comments within an 80 column limit, but not code.
+" These two options give us that
+setlocal formatoptions=crq
+setlocal textwidth=120
+
 let b:ale_linters = ['pyls']
 let b:ale_fixers = ['yapf', 'isort']
 
