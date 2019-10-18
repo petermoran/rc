@@ -75,3 +75,4 @@ export HISTCONTROL=ignoreboth:erasedups
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export FZF_DEFAULT_COMMAND='rg --files'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=00;33:quote=01;34'
