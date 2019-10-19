@@ -97,8 +97,8 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " space : disable search highlighting
 nnoremap <leader><space> :nohlsearch<esc>
 " n, p : next, previous quickfix error
-nnoremap <leader>n :cn<esc>
-nnoremap <leader>p :cN<esc>
+" nnoremap <leader>n :cn<esc>
+" nnoremap <leader>p :cN<esc>
 " r : search replace word under cursor
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 " common commands
@@ -113,12 +113,14 @@ nnoremap <leader>f :Files<esc>
 nnoremap <leader>g :Rg<esc>
 " ale commands
 nnoremap <leader>a :ALENextWrap<CR>
-nnoremap <leader>s :ALEPreviousWrap<CR>
+nnoremap <leader>p :ALEPreviousWrap<CR>
 nnoremap <leader>d :ALEGoToDefinition<CR>
 nnoremap <leader>v :ALEFix<CR>
 " nerdtree commands
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>z :call CurtineIncSw()<esc>
+" open file starting in cwd for buffer
+nnoremap <Leader>e :e <C-R>=expand("%:h") . "/" <CR>
 
 " ctrl h/l to shift tabs
 nnoremap <C-h> :bprev<CR>

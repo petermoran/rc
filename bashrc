@@ -22,6 +22,8 @@ alias l="ls -lF"
 alias lh="ls -lFh"
 alias lt="ls -ltr"
 
+alias less='less -R'
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -36,6 +38,8 @@ alias uuuu="cd ../../../.."
 alias c="TCLLIBPATH=/usr/lib/tcltk/x86_64-linux-gnu unbuffer nice make -j$(nproc) 2>&1 | tee /tmp/last_build.tmp | more && sed -i 's/\x1b\[[0-9;]*m//g;s/\x1b\[K//g' /tmp/last_build.tmp"
 # note: find correct path by searching for tcl file find /usr -name '*.tcl'
 # e.g: /usr/lib/tcltk/x86_64-linux-gnu/expect5.45.4/pkgIndex.tcl
+
+alias mj="nice make -j $(nproc)"
 
 alias vc="vim -q /tmp/last_build.tmp"
 
