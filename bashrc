@@ -32,6 +32,9 @@ alias u="cd .."
 alias uu="cd ../.."
 alias uuu="cd ../../.."
 alias uuuu="cd ../../../.."
+alias uuuuu="cd ../../../../.."
+alias uuuuuu="cd ../../../../../.."
+alias uuuuuuu="cd ../../../../../../.."
 
 # alias c='unbuffer nice make -j18 2>&1 | more'
 # alias c="unbuffer nice make -j18 2>&1 | tee /tmp/last_build.tmp | more && sed -i 's/\x1b\[[0-9;]*m//g;s/\x1b\[K//g' /tmp/last_build.tmp"
