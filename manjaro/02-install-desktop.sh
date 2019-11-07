@@ -13,5 +13,5 @@ fi
 
 # Install packages from standard repos first, then AUR.
 yay -Syu
-yay -S --needed awesome vicious rofi neovim qutebrowser feh xterm lxappearance lxterminal alacritty tmux expect cmake gdb ccache clang llvm fzf ripgrep manjarozfs
+yay -S --needed i3-gaps i3blocks neovim qutebrowser feh xterm lxappearance lxterminal alacritty tmux expect cmake gdb ccache clang llvm fzf ripgrep manjarozfs
 yay -S --needed neovim-drop-in ttf-iosevka ccls spotify slack-desktop
