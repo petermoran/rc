@@ -17,7 +17,7 @@ exec --no-startup-id feh -z --bg-scale ~/.config/wallpaper      # random wallpap
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id lxterminal
 
 # kill focused window
 bindsym $mod+c kill

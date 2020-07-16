@@ -21,6 +21,7 @@ git clone https://github.com/Vimjas/vim-python-pep8-indent.git
 git clone https://github.com/drmingdrmer/vim-tabbar.git
 git clone https://github.com/junegunn/fzf.vim.git
 git clone https://github.com/tpope/vim-dispatch.git
+git clone https://github.com/jremmen/vim-ripgrep.git
 
 # vim-peter
 ln -sf $REPO/vim-peter

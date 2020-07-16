@@ -5,8 +5,7 @@ let g:ale_fix_on_save = 0
 " set completeopt+=noinsert
 
 " add fzf path
-" set rtp+=~/usr/src/fzf
-" set rtp+=~/usr/src/fzf.vim
+set rtp+=~/usr/src/fzf
 
 " pathogen load
 " filetype off
@@ -85,6 +84,8 @@ autocmd FileChangedShellPost *
 
 " recognise .tpp files as c++
 autocmd BufNewFile,BufReadPost *.tpp set filetype=cpp
+autocmd BufNewFile,BufReadPost *.q set filetype=q
+autocmd BufNewFile,BufReadPost *.k set filetype=k
 
 set autowrite
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -109,8 +110,8 @@ nnoremap <leader>o :only<esc>
 nnoremap <leader>c :Make<esc>
 " fzf commands
 nnoremap <leader>b :Buffers<esc>
-nnoremap <leader>f :Files<esc>
-nnoremap <leader>g :Rg<esc>
+nnoremap <leader>f :FZF<esc>
+nnoremap <leader>g :RipGrep<esc>
 " ale commands
 nnoremap <leader>a :ALENextWrap<CR>
 nnoremap <leader>p :ALEPreviousWrap<CR>
@@ -125,6 +126,8 @@ nnoremap <Leader>e :e <C-R>=expand("%:h") . "/" <CR>
 " ctrl h/l to shift tabs
 nnoremap <C-h> :bprev<CR>
 nnoremap <C-l> :bnext<CR>
+
+
 
 " Function to make ALE completion and Supertab completion play nice
 " by first trying ALE and then falling back to default vim.
