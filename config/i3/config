@@ -11,6 +11,7 @@ font pango:Iosevka 9
 exec --no-startup-id nm-applet                                  # wifi
 exec --no-startup-id xset r rate 150 40                         # keyboard repeat rate
 exec --no-startup-id xset s 600                                 # black screen after 10 min
+exec --no-startup-id setxkbmap -option "ctrl:nocaps"            # caps -> ctrl
 exec --no-startup-id feh -z --bg-scale ~/.config/wallpaper      # random wallpaper
 
 # Use Mouse+$mod to drag floating windows to their wanted position
