@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=xset r rate 150 40
+Hidden=false
+NoDisplay=false X-GNOME-Autostart-enabled=true
+Name=xset
+Comment=xset

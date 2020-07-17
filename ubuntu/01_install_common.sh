@@ -11,6 +11,7 @@ PACKAGES=(
     gcc-multilib
     git
     gdb
+    lxterminal
     neovim
     openssh-server
     python3
@@ -22,6 +23,8 @@ PACKAGES=(
     zfsutils-linux
 )
 
+sudo apt update
+sudo apt upgrade
 sudo apt install ${PACKAGES[*]}
 
 # Extras:

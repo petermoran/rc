@@ -1,17 +1,26 @@
 #!/bin/bash -eux
 
-REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 
 cat > ~/.bashrc <<EOF
+# If not running interactively, don't do anything
+case \$- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Source common and local rc
 source $REPO/bashrc
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
 EOF
 
-for RC in inputrc tmux.conf xinitrc ; do
+for RC in inputrc tmux.conf ; do
     rm -f ~/.$RC
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in awesome fontconfig lxterminal nvim wallpaper ; do
+for CONFIG in autostart i3 lxterminal nvim wallpaper ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done
