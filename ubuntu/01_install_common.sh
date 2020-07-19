@@ -12,8 +12,10 @@ PACKAGES=(
     git
     gdb
     lxterminal
+    lm-sensors
     neovim
     openssh-server
+    pavucontrol
     python3
     qutebrowser
     ripgrep
