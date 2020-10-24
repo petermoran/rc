@@ -44,7 +44,7 @@ alias ipython='ipython --TerminalIPythonApp.gui="qt"'
 alias tmux="tmux -2"
 
 # add usr/bin to path if not found
-for dir in $HOME/usr/bin $HOME/bin; do
+for dir in $HOME/usr/bin $HOME/bin $HOME/.local/bin; do
   case ":$PATH:" in
     *":$dir:"*) :;; # already there
     *) PATH="$dir:$PATH";;
