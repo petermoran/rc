@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
 # Create a local pacman mirror list.
-sudo pacman-mirrors --country Australia,Hong_Kong,Japan
+sudo pacman-mirrors --country Australia
 sudo pacman -Syu
 
 # Manual steps:
