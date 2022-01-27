@@ -113,13 +113,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+c exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/usr/bin/change-volume up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/usr/bin/change-volume down
+bindsym XF86AudioMute exec --no-startup-id ~/usr/bin/change-volume mute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/usr/bin/change-brightness up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/usr/bin/change-brightness down
 
 # set primary gruvbox colorscheme colors
 set $bg #282828

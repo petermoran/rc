@@ -3,8 +3,7 @@
 REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 
 cat > ~/.bashrc <<EOF
-[[ $- != *i* ]] && return
-
+[[ \$- != *i* ]] && return
 source $REPO/bashrc
 source $REPO/bash_prompt
 source ~/.bashrc.local
@@ -17,7 +16,7 @@ for RC in inputrc tmux.conf ; do
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in alacritty ; do
+for CONFIG in alacritty i3 ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done
