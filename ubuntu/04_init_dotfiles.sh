@@ -20,7 +20,7 @@ for RC in inputrc tmux.conf ; do
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in autostart i3 lxterminal nvim wallpaper ; do
+for CONFIG in alacritty autostart i3 lxterminal nvim wallpaper ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done

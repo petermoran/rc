@@ -13,13 +13,14 @@ exec --no-startup-id dunst                                      # notifications
 exec --no-startup-id xset r rate 150 40                         # keyboard repeat rate
 exec --no-startup-id xset s 600                                 # black screen after 10 min
 exec --no-startup-id setxkbmap -option "ctrl:nocaps"            # caps -> ctrl
-exec --no-startup-id feh -z --bg-scale ~/.config/wallpaper      # random wallpaper
+exec --no-startup-id feh -z --bg-scale ~/.config/wallpaper/fireeyesskull.png
 exec --no-startup-id /usr/bin/libinput-gestures                 # trackpad gestures
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
+# bindsym $mod+Return exec --no-startup-id lxterminal
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+n exec --no-startup-id alacritty
 
@@ -65,7 +66,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Tab focus mode_toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -156,6 +157,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="Spotify"] floating enable
 for_window [class="ute"] floating enable
 for_window [title="Figure*"] floating enable
+for_window [class="matplotlib"] floating enable
 
 # remove window titles
 for_window [class=".*"] border pixel 1

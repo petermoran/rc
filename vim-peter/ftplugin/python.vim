@@ -7,8 +7,14 @@ set completeopt+=noinsert
 setlocal formatoptions=crq
 setlocal textwidth=120
 
-let b:ale_linters = ['pyls']
+let b:ale_linters = ['pylsp']
 let b:ale_fixers = ['yapf', 'isort']
+
+let g:ale_python_pylsp_config = {
+            \   'pylsp': {
+            \     'configurationSources': ['flake8'],
+            \   },
+            \ }
 
 set tabstop=4       " tab width is 4 spaces
 set shiftwidth=4    " indent also with 4 spaces

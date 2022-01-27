@@ -11,6 +11,7 @@ set rtp+=~/usr/src/fzf
 " filetype off
 " execute pathogen#infect()
 
+let g:python_highlight_all = 1
 syntax on
 filetype plugin indent on
 
@@ -40,12 +41,77 @@ set wildmode=longest,list,full
 set wildmenu
 
 " appearance customisation
-set t_Co=256
+" packadd! edge
+" packadd! onedark.vim
+"" packadd! gruvbox-material
+
+if (has('nvim'))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+endif
+
+if (has('termguicolors'))
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 set background=dark
-let g:gruvbox_contrast_dark="medium"
-" let g:gruvbox_contrast_light="medium"
-" set background=light
-colorscheme gruvbox
+
+" https://github.com/NLKNguyen/papercolor-theme/blob/master/DESIGN.md
+let g:PaperColor_Theme_Options = {
+            \   'language': {
+            \     'python': {
+            \       'highlight_builtins' : 1
+            \     },
+            \     'cpp': {
+            \       'highlight_standard_library': 1
+            \     },
+            \     'c': {
+            \       'highlight_builtins' : 1
+            \     }
+            \   },
+            \   'theme': {
+            \     'default.dark': {
+            \       'override' : {
+            \         'color00' : ['#262626', '235'],
+            \         'color07' : ['#e4e4e4', '254'],
+            \         'linenumber_fg' : ['#444444', '238'],
+            \         'linenumber_bg' : ['#262626', '235'],
+            \         'cursorlinenr_fg' : ['#bcbcbc', '235'],
+            \         'cursorlinenr_bg' : ['#1c1c1c', '234'],
+            \       }
+            \     }
+            \   }
+            \ }
+
+" colorscheme peterdark
+" colorscheme hybrid_material
+" colorscheme gruvbox-material
+colorscheme PaperColor
+
+" set t_Co=256
+" let g:gruvbox_contrast_dark="medium"
+" colorscheme gruvbox
+
+" set background=dark
+" colorscheme onedark
+
+" let g:neodark#background = '#303030'
+" " let g:neodark#use_256color = 1
+" colorscheme neodark
+
+" set background=dark
+" let g:gruvbox_italics=0
+" colorscheme gruvbox8
+
+" set background=dark
+" let g:edge_disable_italic_comment = 1
+" colorscheme edge
+
+" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
+" let g:material_theme_style = 'default'
+" let g:material_terminal_italics = 0
+" colorscheme material
 
 set number     " turn line numbers on
 set showmatch  " highlight matching braces
@@ -53,7 +119,20 @@ set cursorline
 
 " rainbow parentheses improved
 let g:rainbow_active = 1
-let g:rainbow_conf = {'separately': {'cmake': 0}}
+" let g:rainbow_conf = {'separately': {'cmake': 0}}
+let g:rainbow_guifgs = [
+    \ '#c464a3',
+    \ '#ba7d1a',
+    \ '#b5cc79',
+    \ '#89d3e8',
+    \ '#da5c84',
+    \ '#71baf9',
+    \ '#e7c085',
+    \ '#b888e2',
+    \ '#54d1bf',
+    \ '#c7c18b',
+    \ '#c2948d',
+    \ ]
 
 " disable backup files
 set nobackup
@@ -111,7 +190,7 @@ nnoremap <leader>c :Make<esc>
 " fzf commands
 nnoremap <leader>b :Buffers<esc>
 nnoremap <leader>f :FZF<esc>
-nnoremap <leader>g :RipGrep<esc>
+nnoremap <leader>g :Rg<esc>
 " ale commands
 nnoremap <leader>a :ALENextWrap<CR>
 nnoremap <leader>p :ALEPreviousWrap<CR>
