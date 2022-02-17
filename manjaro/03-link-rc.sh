@@ -11,12 +11,12 @@ EOF
 
 touch ~/.bashrc.local
 
-for RC in inputrc tmux.conf ; do
+for RC in inputrc tmux.conf Xresources ; do
     rm -f ~/.$RC
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in alacritty i3 ; do
+for CONFIG in alacritty i3 nvim ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done
