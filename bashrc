@@ -30,7 +30,42 @@ if [ -z "$PS_COLOUR" ]; then
     PS_COLOUR="36m"
 fi
 
-PS1="${debian_chroot:+($debian_chroot)}\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
+# PS1="${debian_chroot:+($debian_chroot)}\[\033[00;${PS_COLOUR}\]\u@\h\[\033[00m\] \[\033[00;${PS_COLOUR}\]\w\[\033[00m\]\n\$ "
+
+# Simple PS1 without colors using format arg. Feel free to use PROMPT_COMMAND
+# export PS1="\u@\h \w \$(__fastgit_ps1)$ "
+export PS1="\[\033[00;${PS_COLOUR}\]\u@\h \w\[\033[00m\]\$(__fastgit_ps1)\n\$ "
+
+# 100% pure Bash (no forking) function to determine the name of the current git branch
+# https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f
+# taken from the comment about supporting submodules
+function __fastgit_ps1 () {
+    local _head_file _head
+    local _dir="$PWD"
+
+    while [[ -n "$_dir" ]]; do
+        _head_file="$_dir/.git/HEAD"
+        if [[ -f "$_dir/.git" ]]; then
+            read -r _head_file < "$_dir/.git" && _head_file="$_dir/${_head_file#gitdir: }/HEAD"
+        fi
+        [[ -e "$_head_file" ]] && break
+        _dir="${_dir%/*}"
+    done
+
+    if [[ -e "$_head_file" ]]; then
+        read -r _head < "$_head_file" || return
+        case "$_head" in
+            ref:*) printf " [${_head#ref: refs/heads/}] " ;;
+            "") ;;
+            # HEAD detached
+            *) printf " [${_head:0:9}] " ;;
+        esac
+        return 0
+    fi
+
+    return 1
+}
+
 
 HISTSIZE=10000
 HISTFILESIZE=20000

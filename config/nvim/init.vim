@@ -205,12 +205,3 @@ nnoremap <Leader>e :e <C-R>=expand("%:h") . "/" <CR>
 " ctrl h/l to shift tabs
 nnoremap <C-h> :bprev<CR>
 nnoremap <C-l> :bnext<CR>
-
-
-
-" Function to make ALE completion and Supertab completion play nice
-" by first trying ALE and then falling back to default vim.
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-p>") |
-  \ endif

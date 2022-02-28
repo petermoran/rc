@@ -3,7 +3,7 @@
 pacman -S base-devel
 pacman -S yay
 
-pacman -S neovim alacritty tmux ttc-iosevka fzf ripgrep
+pacman -S neovim alacritty tmux ttc-iosevka fzf ripgrep python-pynvim
 pacman -S i3-gaps i3blocks feh rofi dunst dunstify
 pacman -S firefox sysstat
 # pacman -S vivaldi vivaldi-ffmpeg-codecs
