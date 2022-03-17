@@ -6,23 +6,16 @@ PACKAGES=(
     curl
     expect
     feh
-    fonts-firacode
     fzf
     gcc-multilib
-    git
     gdb
-    lxterminal
-    lm-sensors
+    git
     neovim
     openssh-server
     pavucontrol
-    python3
-    qutebrowser
     ripgrep
     rlwrap
     tmux
-    vim
-    zfsutils-linux
 )
 
 sudo apt update

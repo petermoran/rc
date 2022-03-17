@@ -3,24 +3,19 @@
 REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 
 cat > ~/.bashrc <<EOF
-# If not running interactively, don't do anything
-case \$- in
-    *i*) ;;
-      *) return;;
-esac
-
-# Source common and local rc
+[[ \$- != *i* ]] && return
 source $REPO/bashrc
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+source ~/.bashrc.local
 EOF
 
-for RC in inputrc tmux.conf ; do
+touch ~/.bashrc.local
+
+for RC in inputrc tmux.conf Xresources ; do
     rm -f ~/.$RC
     ln -s $REPO/$RC ~/.$RC
 done
 
-for CONFIG in alacritty autostart i3 lxterminal nvim wallpaper ; do
+for CONFIG in alacritty i3 nvim ; do
     rm -rf ~/.config/$CONFIG
     ln -s $REPO/config/$CONFIG ~/.config/$CONFIG
 done
@@ -35,3 +30,5 @@ cat > ~/.gitconfig <<EOF
     type = cat-file -t
     dump = cat-file -p
 EOF
+
+mkdir -p ~/usr/bin
