@@ -34,7 +34,7 @@ fi
 
 # Simple PS1 without colors using format arg. Feel free to use PROMPT_COMMAND
 # export PS1="\u@\h \w \$(__fastgit_ps1)$ "
-export PS1="\[\033[00;${PS_COLOUR}\]\u@\h \w\[\033[00m\]\$(__fastgit_ps1)\n\$ "
+export PS1="\[\033[00;${PS_COLOUR}\]\u@\h \w\[\033[00;32m\]\$(__fastgit_ps1)\[\033[00m\]\n\$ "
 
 # 100% pure Bash (no forking) function to determine the name of the current git branch
 # https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f
